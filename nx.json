@@ -2,22 +2,26 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "production": ["default"],
+    "production": [
+      "default",
+      "!{projectRoot}/**/*.Tests/**/*",
+      "!{projectRoot}/**/bin/**/*",
+      "!{projectRoot}/**/obj/**/*"
+    ],
     "sharedGlobals": []
   },
   "plugins": [
     {
-      "plugin": "@nx/js/typescript",
+      "plugin": "@nx/dotnet",
       "options": {
-        "typecheck": {
-          "targetName": "typecheck"
-        },
-        "build": {
-          "targetName": "build",
-          "configName": "tsconfig.lib.json",
-          "buildDepsName": "build-deps",
-          "watchDepsName": "watch-deps"
-        }
+        "build": false,
+        "build:release": false,
+        "publish": false,
+        "pack": false,
+        "watch": false,
+        "run": false,
+        "restore": false,
+        "clean": false
       }
     }
   ]
