@@ -2,6 +2,9 @@ dist
 tmp
 node_modules
 .nx/workspace-data
+.nx/cache
+.nx/migrate-runs
+# .NET
 **/bin/
 **/obj/
 /artifacts/
